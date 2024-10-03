@@ -24,7 +24,6 @@ const Home = () => {
 
     const sendToServer = async (transcript) => {
         try {
-            debugger
             console.log("Sending message to server:", transcript); // Log the message being sent
             const response = await axios.post(`${base_url}/api/chat`, { text: transcript });
             console.log("Response from server:", response.data); // Log the server's response
