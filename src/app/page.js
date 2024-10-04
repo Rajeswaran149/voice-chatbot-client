@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import axios from 'axios';
-import { base_url } from './config';
+import { getBaseUrl } from './config';
 
 const Home = () => {
     const [input, setInput] = useState('');
@@ -23,6 +23,7 @@ const Home = () => {
     };
 
     const sendToServer = async (transcript) => {
+        const base_url = getBaseUrl();
         try {
             console.log("Sending message to server:", transcript); // Log the message being sent
             const response = await axios.post(`${base_url}/api/chat`, { text: transcript });
